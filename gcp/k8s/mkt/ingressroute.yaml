@@ -1,0 +1,19 @@
+
+apiVersion: contour.heptio.com/v1beta1
+kind: IngressRoute
+metadata:
+  name: mkt-blog
+  namespace: marketing
+  labels:
+    app: mkt-blog
+spec:
+  routes:
+  - match: /blog
+    services:
+    - name: mkt-blog
+      port: 80
+#  - match: /v2 # matches `multi-path.bar.com/blog` or `multi-path.bar.com/blog/*`
+#    services:
+#    - name: hello-world-v2
+#      port: 80
+#      permitInsecure: true

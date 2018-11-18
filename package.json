@@ -1,0 +1,38 @@
+{
+  "name": "helloworld",
+  "description": "Node JS Hello World",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "author": "gaelleiadvize <gaelle.acas@iadvize.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GoogleCloudPlatform/nodejs-docs-samples.git"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "system-test": "repo-tools test app -- server.js",
+    "test": "npm run system-test"
+  },
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "@google-cloud/nodejs-repo-tools": "^2.3.0"
+  },
+  "cloud-repo-tools": {
+    "test": {
+      "app": {
+        "msg": "Hello Kubernetes!",
+        "args": [
+          "server.js"
+        ]
+      }
+    },
+    "requiresKeyFile": true,
+    "requiresProjectId": true
+  }
+}
