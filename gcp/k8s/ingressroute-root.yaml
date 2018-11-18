@@ -1,0 +1,22 @@
+
+apiVersion: contour.heptio.com/v1beta1
+kind: IngressRoute
+metadata:
+  name: hello-world
+  namespace: default
+  labels:
+    app: hello-world
+spec:
+  virtualhost:
+    fqdn: hello.gke.khalydethylis.com
+    tls:
+      secretName: tls-prod
+  routes:
+  - match: /v1 # matches everything else
+    services:
+    - name: hello-world-v1
+      port: 80
+  - match: /blog
+    delegate:
+      name: mkt-blog
+      namespace: marketing
